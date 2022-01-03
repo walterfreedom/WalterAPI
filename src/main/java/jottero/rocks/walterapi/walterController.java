@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class walterController {
     private long counter =0;
-    private static  final  String template="%s!";
+    private static final  String template="%s!";
     @CrossOrigin
     @GetMapping("/walter")
     public waltermodel walter(){
