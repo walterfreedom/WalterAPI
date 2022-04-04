@@ -18,6 +18,6 @@ public class WalterApiApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        postRepo.save(new waltermodel("walter2","firetruck"));
+
     }
 }

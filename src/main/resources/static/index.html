@@ -30,11 +30,7 @@
         <h1 id="walterLabel">aa</h1>
         <h1 id="welcome"></h1>
         <div id= "loginDiv">
-            <?php
-    $allah=1;
-    
 
-?>
             Username:
             <input type="text" id="userName">
             <br>
@@ -55,13 +51,13 @@
         </div>
     </div>
 
-    <div style="flex:3; background-color: aqua;">
+    <div style="flex:3; background-color: aqua;" id="maindiv">
 
         <H1>PLAY THE LATEST MASTERPIECE HERE: <a href="Build/amogusshop/amogus/amogusshop.html" style="font-size: 40px">Amogus Shop</a><br></H1>
 
         <div>
             <h1 style="font-size: 20px"> ULTIMATE CHANGE LOG</h1>
-            <p style="font-size: 18px">
+            <p style="font-size: 18px" id="bottomp">
                 Jotterorocksv2 preview.
 
                 Added doom, Firebase Login. Upgraded hosting to 4 cores with 24 gb ram.
@@ -71,7 +67,7 @@
             </p>
         </div>
 
-        <h1>Jottero, The Ferret</h1>
+        <h1 id="jotheader">Jottero, The Ferret</h1>
         <h2>Walter</h2>
         <img src="https://i.imgur.com/xdGZKLy.png" alt="walter" height="25%" width="25%">
         <p>Very based ferret. very intelligent, wow.</p>
@@ -102,8 +98,16 @@
     </div>
 </div>
 <script>
-    var json=JSON.parse(httpGet("walter"))
-    document.getElementById("walterLabel").innerText=json.id;
+    var json=JSON.parse(httpGet("/getlastposts?id=1"))
+    console.log(json);
+    for (var i in json){
+        const newDiv = document.createElement("div");
+        const text= document.createTextNode(json[0].walter+ "\n"+json[0].text)
+        newDiv.appendChild(text);
+        const currentDiv = document.getElementById("jotheader");
+        maindiv=document.getElementById("maindiv");
+        maindiv.insertBefore(newDiv,currentDiv);
+    }
 </script>
 </body>
 </html>
