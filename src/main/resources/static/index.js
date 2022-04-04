@@ -28,7 +28,7 @@ document.getElementById('signOutButton').addEventListener("click",signOut1);
 document.getElementById('loginButton').addEventListener("click",ferretMover);
 
 
-onAuthStateChanged(auth, (user) => {
+/*onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -50,7 +50,8 @@ function registerEmail(){
 
     var eMail=document.getElementById('eMail').value;
     var password= document.getElementById('password').value;
-    console.log(eMail);
+    var Username= document.getElementById("userName").value;
+
     createUserWithEmailAndPassword(auth, eMail, password)
         .then((userCredential) => {
 
@@ -79,7 +80,7 @@ function loginWithEmail(){
             const errorMessage = error.message;
         });
 }
-
+*/
 
 function ferretMover(){
     var interval = setInterval(ferretMove,10);
@@ -91,6 +92,7 @@ function ferretMover(){
         ferret.style.left=position+"px";
     }
 }
+
 
 
 

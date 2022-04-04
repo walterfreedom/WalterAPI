@@ -6,11 +6,35 @@
 </head>
 <body style="background-color: gray">
 <div style="display:flex;flex-direction: row;">
+<script>
+    function httpGet(theUrl) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+    }
 
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        // ...
+
+    } else {
+        // No user is signed in.
+    }
+</script>
     <div style="flex:1; background-color: aquamarine;"  >
-
+        <h1 id="walterLabel">aa</h1>
         <h1 id="welcome"></h1>
         <div id= "loginDiv">
+            <?php
+    $allah=1;
+    
+
+?>
             Username:
             <input type="text" id="userName">
             <br>
@@ -24,31 +48,42 @@
             <button id="loginButton">Login</button>
         </div>
 
-        <div id= "loggedinDiv">
-            <p id="Username">aga</p>
+        <div id= "loggedinDiv" style="display: none">
+            <p id="UsernameLabel">aga</p>
             <br>
             <button id="signOutButton">Sign out</button>
         </div>
     </div>
 
     <div style="flex:3; background-color: aqua;">
-        DOOM
-        <div id="dosbox"></div>
-        <button onclick="dosbox.requestFullScreen();">Make fullscreen</button>
-        
-        <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
-        <script type="text/javascript">
-            var dosbox = new Dosbox({
-                id: "dosbox",
-                onload: function (dosbox) {          dosbox.run("/DOOM.zip", "./DOOM.EXE");
-                },
-                onrun: function (dosbox, app) {
-                    console.log("App '" + app + "' is runned");
-                }
-            });
-        </script>
-        <br>
-        
+
+        <H1>PLAY THE LATEST MASTERPIECE HERE: <a href="Build/amogusshop/amogus/amogusshop.html" style="font-size: 40px">Amogus Shop</a><br></H1>
+
+        <div>
+            <h1 style="font-size: 20px"> ULTIMATE CHANGE LOG</h1>
+            <p style="font-size: 18px">
+                Jotterorocksv2 preview.
+
+                Added doom, Firebase Login. Upgraded hosting to 4 cores with 24 gb ram.
+
+                Added Waltropolis to Minecraft server, you can go there through that portal.
+                To be honest I am doing many stuff, but those are what I am willing to reveal right now. Enjoy the Amogus Shop.
+            </p>
+        </div>
+
+        <h1>Jottero, The Ferret</h1>
+        <h2>Walter</h2>
+        <img src="https://i.imgur.com/xdGZKLy.png" alt="walter" height="25%" width="25%">
+        <p>Very based ferret. very intelligent, wow.</p>
+        <p><b>Skills:</b> Java, 4X strategy games, cool facts about concrete</p>
+        <h2>Cool memories</h2>
+        <img src="https://i.imgur.com/h8G6Jl5.png" alt="beachtime" height="25%"width="25%">
+        <p>me at beach</p>
+        <img src="https://i.imgur.com/q4lxCON.png" alt="mushroom" height="25%"width="25%">
+        <p>me with cool mushroom</p>
+
+
+
         <script type="module" src="index.js"></script>
 
     </div>
@@ -60,34 +95,15 @@
     <a href="tyler.html" style="font-size: 40px">tyler.html</a><br>
     <a href="picklerick.html" style="font-size: 40px">picklerick.html</a><br>
     <a href="duckhonk.html" style="font-size: 40px">GOOSE HONK</a><br>
+        <a href="doom.html" style="font-size: 40px">Doom</a><br>
+        <a href="alphaville.html" style="font-size: 40px">Alphaville2</a><br>
+        <a href="Build/amogusshop/amogus/amogusshop.html" style="font-size: 40px">Amogus Shop</a><br>
+        <a href="http://chicken.works" style="font-size: 40px">Chicken Works</a><br>
     </div>
 </div>
-
-
-
-
-<pre>
-    <h1 style="font-size: 20px"> ULTIMATE CHANGE LOG</h1>
-    <p style="font-size: 18px"> 
-    Jotterorocksv2 preview.
-
-    Addedd doom, Firebase Login. Upgraded hosting to 4 cores with 24 gb ram. 
-
-    Added Waltropolis to Minecraft server, but its inaccessable rn.
-    </p>
-</pre>
-
-<h1>Jottero, The Ferret</h1>
-<h2>Walter</h2>
-<img src="https://i.imgur.com/xdGZKLy.png" alt="walter" height="20%" width="20%">
-<p>Very based ferret. very intelligent, wow.</p>
-<p><b>Skills:</b> Java, 4X strategy games, cool facts about concrete</p>
-<h2>Cool memories</h2>
-<img src="https://i.imgur.com/h8G6Jl5.png" alt="beachtime" height="20%"width="20%">
-<p>me at beach</p>
-<img src="https://i.imgur.com/q4lxCON.png" alt="mushroom" height="20%"width="20%">
-<p>me with cool mushroom</p>
-
-
+<script>
+    var json=JSON.parse(httpGet("walter"))
+    document.getElementById("walterLabel").innerText=json.id;
+</script>
 </body>
 </html>
